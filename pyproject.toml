@@ -8,6 +8,10 @@ authors = ["zhangdapeng520 <pygosuperman@outlook.com>"]
 python = "^3.9"
 fastapi = "^0.74.1"
 uvicorn = "^0.17.5"
+pydantic = {extras = ["email"], version = "^1.9.0"}
+python-multipart = "^0.0.5"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = "^3.3.0"
 
 [tool.poetry.dev-dependencies]
 
