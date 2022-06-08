@@ -26,6 +26,6 @@ async def read_item(item_id: str):
     return items[item_id]
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z50_response_model_parameter:app", reload=True, host="0.0.0.0", port=8888)

@@ -4,7 +4,7 @@ import sys
 import typing
 import warnings
 
-import anyio
+from zdppy_api import anyio
 
 from zdppy_api.starlette.types import Receive, Scope, Send
 

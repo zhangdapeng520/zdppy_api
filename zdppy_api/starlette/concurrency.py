@@ -3,7 +3,7 @@ import sys
 import typing
 import warnings
 
-import anyio
+from zdppy_api import anyio
 
 if sys.version_info >= (3, 10):  # pragma: no cover
     from typing import ParamSpec

@@ -3,7 +3,7 @@ import typing
 from collections.abc import Mapping
 from http import cookies as http_cookies
 
-import anyio
+from zdppy_api import anyio
 
 from zdppy_api.starlette.datastructures import URL, Address, FormData, Headers, QueryParams, State
 from zdppy_api.starlette.formparsers import FormParser, MultiPartParser

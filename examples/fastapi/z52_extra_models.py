@@ -44,6 +44,6 @@ async def create_user(user_in: UserIn):
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z52_extra_models:app", reload=True, host="0.0.0.0", port=8888)

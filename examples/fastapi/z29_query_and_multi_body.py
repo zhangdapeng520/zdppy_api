@@ -34,6 +34,6 @@ async def update_item(
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z29_query_and_multi_body:app", reload=True, host="0.0.0.0", port=8888)

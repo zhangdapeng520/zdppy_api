@@ -11,7 +11,7 @@ async def read_keyword_weights():
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z56_response_model_dict:app", reload=True, host="0.0.0.0", port=8888)
    

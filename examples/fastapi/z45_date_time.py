@@ -29,6 +29,6 @@ async def read_items(
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z45_date_time:app", reload=True, host="0.0.0.0", port=8888)

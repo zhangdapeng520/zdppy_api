@@ -22,6 +22,6 @@ async def update_item(item_id: int, item: Item = Body(..., embed=True)):
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z31_body_field:app", reload=True, host="0.0.0.0", port=8888)

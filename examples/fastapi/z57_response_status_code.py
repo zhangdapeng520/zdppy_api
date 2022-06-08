@@ -9,6 +9,6 @@ async def create_item(name: str):
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z57_response_status_code:app", reload=True, host="0.0.0.0", port=8888)

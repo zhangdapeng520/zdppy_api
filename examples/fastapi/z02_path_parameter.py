@@ -14,6 +14,6 @@ async def read_user(user_id: str):
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z02_path_parameter:app", reload=True, host="0.0.0.0", port=8888)

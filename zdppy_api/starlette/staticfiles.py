@@ -4,7 +4,7 @@ import stat
 import typing
 from email.utils import parsedate
 
-import anyio
+from zdppy_api import anyio
 
 from zdppy_api.starlette.datastructures import URL, Headers
 from zdppy_api.starlette.exceptions import HTTPException

@@ -30,6 +30,6 @@ async def read_users():
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z66_tags:app", reload=True, host="0.0.0.0", port=8888)

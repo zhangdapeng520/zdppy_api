@@ -9,7 +9,7 @@ from functools import partial
 from mimetypes import guess_type as mimetypes_guess_type
 from urllib.parse import quote
 
-import anyio
+from zdppy_api import anyio
 
 from zdppy_api.starlette._compat import md5_hexdigest
 from zdppy_api.starlette.background import BackgroundTask

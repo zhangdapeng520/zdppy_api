@@ -13,6 +13,6 @@ async def read_items(q: Optional[str] = Query(None, max_length=50)):
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z14_query_validation:app", reload=True, host="0.0.0.0", port=8888)

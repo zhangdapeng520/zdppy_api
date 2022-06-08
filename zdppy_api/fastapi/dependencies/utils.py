@@ -17,7 +17,7 @@ from typing import (
     cast,
 )
 
-import anyio
+from zdppy_api import anyio
 from zdppy_api.fastapi import params
 from zdppy_api.fastapi.concurrency import (
     AsyncExitStack,

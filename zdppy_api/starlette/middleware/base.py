@@ -1,6 +1,6 @@
 import typing
 
-import anyio
+from zdppy_api import anyio
 
 from zdppy_api.starlette.requests import Request
 from zdppy_api.starlette.responses import Response, StreamingResponse

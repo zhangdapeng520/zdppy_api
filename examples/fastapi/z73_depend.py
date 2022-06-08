@@ -20,6 +20,6 @@ async def read_users(commons: dict = Depends(common_parameters)):
 
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z73_depend:app", reload=True, host="0.0.0.0", port=8888)

@@ -5,7 +5,7 @@ from dataclasses import is_dataclass
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Dict, Optional, Set, Type, Union, cast
 
-import fastapi
+from zdppy_api import fastapi
 from zdppy_api.fastapi.datastructures import DefaultPlaceholder, DefaultType
 from zdppy_api.fastapi.openapi.constants import REF_PREFIX
 from pydantic import BaseConfig, BaseModel, create_model

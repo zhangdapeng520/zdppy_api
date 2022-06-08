@@ -26,6 +26,6 @@ async def update_item(
     return results
 
 if __name__ == '__main__':
-    import uvicorn
+    from zdppy_api import uvicorn
 
     uvicorn.run("z28_singer_value_in_body:app", reload=True, host="0.0.0.0", port=8888)
