@@ -11,6 +11,6 @@ async def read_items(user_agent: Optional[str] = Header(None)):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z47_header_parameter:app", reload=True, host="0.0.0.0", port=8888)

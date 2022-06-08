@@ -25,6 +25,6 @@ async def main():
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z83_cors:app", reload=True, host="0.0.0.0", port=8888)

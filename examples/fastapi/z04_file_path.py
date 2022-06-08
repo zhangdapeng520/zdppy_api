@@ -9,6 +9,6 @@ async def read_file(file_path: str):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z04_file_path:app", reload=True, host="0.0.0.0", port=8888)

@@ -12,6 +12,6 @@ async def read_items(q: str = Query("fixedquery", min_length=3)):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z16_default_value:app", reload=True, host="0.0.0.0", port=8888)

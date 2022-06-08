@@ -36,6 +36,6 @@ async def read_item(item_id: str):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z54_union:app", reload=True, host="0.0.0.0", port=8888)

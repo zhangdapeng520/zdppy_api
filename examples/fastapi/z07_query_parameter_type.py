@@ -18,6 +18,6 @@ async def read_item(item_id: str, q: Optional[str] = None, short: bool = False):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z07_query_parameter_type:app", reload=True, host="0.0.0.0", port=8888)

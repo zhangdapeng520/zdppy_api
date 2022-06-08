@@ -20,6 +20,6 @@ async def read_user_item(
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z08_path_and_query_parameter:app", reload=True, host="0.0.0.0", port=8888)

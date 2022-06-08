@@ -25,6 +25,6 @@ async def read_items(commons: CommonQueryParams = Depends(CommonQueryParams)):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z74_class_as_depends:app", reload=True, host="0.0.0.0", port=8888)

@@ -23,6 +23,6 @@ async def read_query(query_or_default: str = Depends(query_or_cookie_extractor))
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z75_sub_depends:app", reload=True, host="0.0.0.0", port=8888)

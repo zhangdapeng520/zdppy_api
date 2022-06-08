@@ -102,6 +102,6 @@ async def read_users_me(current_user: User = Depends(get_current_active_user)):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z80_oauth:app", reload=True, host="0.0.0.0", port=8888)

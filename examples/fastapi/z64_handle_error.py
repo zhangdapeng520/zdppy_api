@@ -26,6 +26,6 @@ async def read_unicorn(name: str):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z64_handle_error:app", reload=True, host="0.0.0.0", port=8888)

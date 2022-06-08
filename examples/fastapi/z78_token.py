@@ -11,6 +11,6 @@ async def read_items(token: str = Depends(oauth2_scheme)):
     return {"token": token}
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z78_token:app", reload=True, host="0.0.0.0", port=8888)

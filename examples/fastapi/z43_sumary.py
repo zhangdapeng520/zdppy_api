@@ -53,6 +53,6 @@ async def update_item(
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z43_sumary:app", reload=True, host="0.0.0.0", port=8888)

@@ -42,6 +42,6 @@ async def add_process_time_header(request: Request, call_next):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z82_middleware:app", reload=True, host="0.0.0.0", port=8888)

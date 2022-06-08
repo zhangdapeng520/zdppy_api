@@ -20,6 +20,6 @@ async def create_item(item_id: int, item: Item):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z13_request_body_and_path_parameter:app", reload=True, host="0.0.0.0", port=8888)

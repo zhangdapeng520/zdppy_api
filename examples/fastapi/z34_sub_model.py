@@ -27,6 +27,6 @@ async def update_item(item_id: int, item: Item):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z34_sub_model:app", reload=True, host="0.0.0.0", port=8888)

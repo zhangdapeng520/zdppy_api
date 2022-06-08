@@ -12,6 +12,6 @@ async def read_items(q: List[str] = Query(["foo", "bar"])):
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z18_query_list:app", reload=True, host="0.0.0.0", port=8888)

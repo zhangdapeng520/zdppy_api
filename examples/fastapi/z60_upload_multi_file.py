@@ -34,6 +34,6 @@ async def main():
 
 
 if __name__ == '__main__':
-    from zdppy_api import uvicorn
+    import uvicorn
 
     uvicorn.run("z60_upload_multi_file:app", reload=True, host="0.0.0.0", port=8888)
