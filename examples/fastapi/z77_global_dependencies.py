@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, Header, HTTPException
+from zdppy_api.fastapi import Depends, FastAPI, Header, HTTPException
 
 
 async def verify_token(x_token: str = Header(...)):

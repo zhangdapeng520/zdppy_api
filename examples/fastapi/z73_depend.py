@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import Depends, FastAPI
+from zdppy_api.fastapi import Depends, FastAPI
 
 app = FastAPI()
 

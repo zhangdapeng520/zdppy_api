@@ -1,7 +1,7 @@
 from typing import List
 
-from fastapi import FastAPI, File, UploadFile
-from fastapi.responses import HTMLResponse
+from zdppy_api.fastapi import FastAPI, File, UploadFile
+from zdppy_api.fastapi.responses import HTMLResponse
 
 app = FastAPI()
 

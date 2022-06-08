@@ -2,7 +2,7 @@ from datetime import datetime, time, timedelta
 from typing import Optional
 from uuid import UUID
 
-from fastapi import Body, FastAPI
+from zdppy_api.fastapi import Body, FastAPI
 
 app = FastAPI()
 

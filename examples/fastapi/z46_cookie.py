@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import Cookie, FastAPI
+from zdppy_api.fastapi import Cookie, FastAPI
 
 app = FastAPI()
 

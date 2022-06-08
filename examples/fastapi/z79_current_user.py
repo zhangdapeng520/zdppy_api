@@ -1,7 +1,7 @@
 from typing import Optional
 
-from fastapi import Depends, FastAPI
-from fastapi.security import OAuth2PasswordBearer
+from zdppy_api.fastapi import Depends, FastAPI
+from zdppy_api.fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel
 
 app = FastAPI()

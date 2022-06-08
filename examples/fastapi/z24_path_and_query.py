@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import FastAPI, Path, Query
+from zdppy_api.fastapi import FastAPI, Path, Query
 
 app = FastAPI()
 

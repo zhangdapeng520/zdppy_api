@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form
+from zdppy_api.fastapi import FastAPI, Form
 
 app = FastAPI()
 

@@ -1,6 +1,6 @@
 from enum import Enum
 
-from fastapi import FastAPI
+from zdppy_api.fastapi import FastAPI
 
 
 class ModelName(str, Enum):

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import Body, FastAPI
+from zdppy_api.fastapi import Body, FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()

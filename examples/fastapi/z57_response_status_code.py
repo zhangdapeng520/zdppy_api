@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status
+from zdppy_api.fastapi import FastAPI, status
 
 app = FastAPI()
 

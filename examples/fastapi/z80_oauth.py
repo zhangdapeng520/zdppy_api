@@ -1,7 +1,7 @@
 from typing import Optional
 
-from fastapi import Depends, FastAPI, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from zdppy_api.fastapi import Depends, FastAPI, HTTPException, status
+from zdppy_api.fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
 fake_users_db = {

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "zdppy_fastapi"
+name = "zdppy_api"
 version = "0.1.0"
 description = ""
 authors = ["zhangdapeng520 <pygosuperman@outlook.com>"]

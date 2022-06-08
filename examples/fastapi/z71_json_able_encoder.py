@@ -1,8 +1,8 @@
 from datetime import datetime
 from typing import Optional, List, Dict
 
-from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
+from zdppy_api.fastapi import FastAPI
+from zdppy_api.fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 
 fake_db = {}

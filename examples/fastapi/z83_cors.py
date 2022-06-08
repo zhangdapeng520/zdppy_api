@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from zdppy_api.fastapi import FastAPI
+from zdppy_api.fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from zdppy_api.fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 

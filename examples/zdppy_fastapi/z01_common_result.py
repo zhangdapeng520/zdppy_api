@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from zdppy_fastapi import *
+from zdppy_api.fastapi import FastAPI
+from zdppy_api import *
 
 app = FastAPI()
 

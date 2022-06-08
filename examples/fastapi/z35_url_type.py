@@ -1,6 +1,6 @@
 from typing import Optional, Set
 
-from fastapi import FastAPI
+from zdppy_api.fastapi import FastAPI
 from pydantic import BaseModel, HttpUrl
 
 app = FastAPI()

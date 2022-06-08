@@ -1,6 +1,6 @@
 from typing import Dict
 
-from fastapi import FastAPI
+from zdppy_api.fastapi import FastAPI
 
 app = FastAPI()
 

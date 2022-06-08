@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, Form, UploadFile
+from zdppy_api.fastapi import FastAPI, File, Form, UploadFile
 
 app = FastAPI()
 
