@@ -1,20 +1,29 @@
-from typing import Optional
-
 from zdppy_api.fastapi import FastAPI
 
 app = FastAPI()
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: str, q: Optional[str] = None, short: bool = False):
-    item = {"item_id": item_id}
-    if q:
-        item.update({"q": q})
-    if not short:
-        item.update(
-            {"description": "This is an amazing item that has a long description"}
+@app.get("/users/{id}", summary="获取用户信息")
+async def read_user(id: int, name: str | None = None, status: bool = False):
+    """
+    获取用户
+    - id: 用户ID
+    - name: 用户姓名
+    - status: 账户状态
+
+    返回: 用户信息
+    """
+    user = {
+        "id": id,
+        "status": status,
+    }
+    if name:
+        user.update({"name": name})  # 字典更新
+    if not status:
+        user.update(
+            {"description": "账户已激活"}
         )
-    return item
+    return user
 
 
 if __name__ == '__main__':

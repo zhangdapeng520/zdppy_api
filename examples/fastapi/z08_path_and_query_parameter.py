@@ -7,8 +7,17 @@ app = FastAPI()
 
 @app.get("/users/{user_id}/items/{item_id}")
 async def read_user_item(
-        user_id: int, item_id: str, q: Optional[str] = None, short: bool = False
+    user_id: int, item_id: str, q: str | None = None, short: bool = False
 ):
+    """
+    多个路径参数和查询参数的示例
+    - user_id：用户ID
+    - item_id：项目ID
+    - q: 查询参数
+    - short: 其他参数
+
+    返回: 项目信息
+    """
     item = {"item_id": item_id, "owner_id": user_id}
     if q:
         item.update({"q": q})

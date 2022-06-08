@@ -1,12 +1,14 @@
-from typing import Optional
-
 from zdppy_api.fastapi import FastAPI
 
 app = FastAPI()
 
 
 @app.get("/items/{item_id}")
-async def read_item(item_id: str, q: Optional[str] = None):
+async def read_item(item_id: str, q: str | None = None):
+    """
+    q: str | None = None
+    q是可选参数，字符串类型或者None，默认是None
+    """
     if q:
         return {"item_id": item_id, "q": q}
     return {"item_id": item_id}
