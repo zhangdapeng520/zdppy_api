@@ -1,6 +1,6 @@
 from typing import Any, Callable, Dict, Optional, Sequence
 
-from zdppy_api.fastapi import params
+from . import params
 from pydantic.fields import Undefined
 
 

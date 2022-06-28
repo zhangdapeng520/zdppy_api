@@ -5,9 +5,9 @@ from dataclasses import is_dataclass
 from enum import Enum
 from typing import TYPE_CHECKING, Any, Dict, Optional, Set, Type, Union, cast
 
-from zdppy_api import fastapi
-from zdppy_api.fastapi.datastructures import DefaultPlaceholder, DefaultType
-from zdppy_api.fastapi.openapi.constants import REF_PREFIX
+from . import exceptions
+from .datastructures import DefaultPlaceholder, DefaultType
+from .openapi.constants import REF_PREFIX
 from pydantic import BaseConfig, BaseModel, create_model
 from pydantic.class_validators import Validator
 from pydantic.fields import FieldInfo, ModelField, UndefinedType
@@ -68,7 +68,7 @@ def create_response_field(
     try:
         return response_field(field_info=field_info)
     except RuntimeError:
-        raise fastapi.exceptions.FastAPIError(
+        raise exceptions.FastAPIError(
             f"Invalid args for response field! Hint: check that {type_} is a valid pydantic field type"
         )
 

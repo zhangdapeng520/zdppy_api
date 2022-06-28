@@ -1,11 +1,11 @@
 from typing import Any, Dict, List, Optional, Union
 
-from zdppy_api.fastapi.exceptions import HTTPException
-from zdppy_api.fastapi.openapi.models import OAuth2 as OAuth2Model
-from zdppy_api.fastapi.openapi.models import OAuthFlows as OAuthFlowsModel
-from zdppy_api.fastapi.param_functions import Form
-from zdppy_api.fastapi.security.base import SecurityBase
-from zdppy_api.fastapi.security.utils import get_authorization_scheme_param
+from ..exceptions import HTTPException
+from ..openapi.models import OAuth2 as OAuth2Model
+from ..openapi.models import OAuthFlows as OAuthFlowsModel
+from ..param_functions import Form
+from ..security.base import SecurityBase
+from ..security.utils import get_authorization_scheme_param
 from zdppy_api.starlette.requests import Request
 from zdppy_api.starlette.status import HTTP_401_UNAUTHORIZED, HTTP_403_FORBIDDEN
 

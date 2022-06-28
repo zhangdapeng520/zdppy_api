@@ -1,7 +1,7 @@
 from typing import Optional
 
-from zdppy_api.fastapi.openapi.models import APIKey, APIKeyIn
-from zdppy_api.fastapi.security.base import SecurityBase
+from ..openapi.models import APIKey, APIKeyIn
+from ..security.base import SecurityBase
 from zdppy_api.starlette.exceptions import HTTPException
 from zdppy_api.starlette.requests import Request
 from zdppy_api.starlette.status import HTTP_403_FORBIDDEN

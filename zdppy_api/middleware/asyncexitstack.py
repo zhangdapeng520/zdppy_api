@@ -1,6 +1,6 @@
 from typing import Optional
 
-from zdppy_api.fastapi.concurrency import AsyncExitStack
+from ..concurrency import AsyncExitStack
 from zdppy_api.starlette.types import ASGIApp, Receive, Scope, Send
 
 

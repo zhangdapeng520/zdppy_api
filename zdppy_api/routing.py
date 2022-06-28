@@ -18,20 +18,20 @@ from typing import (
     Union,
 )
 
-from zdppy_api.fastapi import params
-from zdppy_api.fastapi.datastructures import Default, DefaultPlaceholder
-from zdppy_api.fastapi.dependencies.models import Dependant
-from zdppy_api.fastapi.dependencies.utils import (
+from . import params
+from .datastructures import Default, DefaultPlaceholder
+from .dependencies.models import Dependant
+from .dependencies.utils import (
     get_body_field,
     get_dependant,
     get_parameterless_sub_dependant,
     solve_dependencies,
 )
-from zdppy_api.fastapi.encoders import DictIntStrAny, SetIntStr, jsonable_encoder
-from zdppy_api.fastapi.exceptions import RequestValidationError, WebSocketRequestValidationError
-from zdppy_api.fastapi.openapi.constants import STATUS_CODES_WITH_NO_BODY
-from zdppy_api.fastapi.types import DecoratedCallable
-from zdppy_api.fastapi.utils import (
+from .encoders import DictIntStrAny, SetIntStr, jsonable_encoder
+from .exceptions import RequestValidationError, WebSocketRequestValidationError
+from .openapi.constants import STATUS_CODES_WITH_NO_BODY
+from .types import DecoratedCallable
+from .utils import (
     create_cloned_field,
     create_response_field,
     generate_unique_id,

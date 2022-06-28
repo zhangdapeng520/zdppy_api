@@ -2,11 +2,11 @@ import binascii
 from base64 import b64decode
 from typing import Optional
 
-from zdppy_api.fastapi.exceptions import HTTPException
-from zdppy_api.fastapi.openapi.models import HTTPBase as HTTPBaseModel
-from zdppy_api.fastapi.openapi.models import HTTPBearer as HTTPBearerModel
-from zdppy_api.fastapi.security.base import SecurityBase
-from zdppy_api.fastapi.security.utils import get_authorization_scheme_param
+from ..exceptions import HTTPException
+from ..openapi.models import HTTPBase as HTTPBaseModel
+from ..openapi.models import HTTPBearer as HTTPBearerModel
+from ..security.base import SecurityBase
+from ..security.utils import get_authorization_scheme_param
 from pydantic import BaseModel
 from zdppy_api.starlette.requests import Request
 from zdppy_api.starlette.status import HTTP_401_UNAUTHORIZED, HTTP_403_FORBIDDEN

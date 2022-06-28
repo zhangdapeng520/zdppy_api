@@ -4,20 +4,20 @@ import warnings
 from enum import Enum
 from typing import Any, Dict, List, Optional, Sequence, Set, Tuple, Type, Union, cast
 
-from zdppy_api.fastapi import routing
-from zdppy_api.fastapi.datastructures import DefaultPlaceholder
-from zdppy_api.fastapi.dependencies.models import Dependant
-from zdppy_api.fastapi.dependencies.utils import get_flat_dependant, get_flat_params
-from zdppy_api.fastapi.encoders import jsonable_encoder
-from zdppy_api.fastapi.openapi.constants import (
+from .. import routing
+from ..datastructures import DefaultPlaceholder
+from ..dependencies.models import Dependant
+from ..dependencies.utils import get_flat_dependant, get_flat_params
+from ..encoders import jsonable_encoder
+from ..openapi.constants import (
     METHODS_WITH_BODY,
     REF_PREFIX,
     STATUS_CODES_WITH_NO_BODY,
 )
-from zdppy_api.fastapi.openapi.models import OpenAPI
-from zdppy_api.fastapi.params import Body, Param
-from zdppy_api.fastapi.responses import Response
-from zdppy_api.fastapi.utils import (
+from ..openapi.models import OpenAPI
+from ..params import Body, Param
+from ..responses import Response
+from ..utils import (
     deep_dict_update,
     generate_operation_id_for_path,
     get_model_definitions,

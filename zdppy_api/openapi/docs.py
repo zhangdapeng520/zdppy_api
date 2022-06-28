@@ -1,7 +1,7 @@
 import json
 from typing import Any, Dict, Optional
 
-from zdppy_api.fastapi.encoders import jsonable_encoder
+from ..encoders import jsonable_encoder
 from zdppy_api.starlette.responses import HTMLResponse
 
 swagger_ui_default_parameters = {

@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Any, Callable, Dict, Iterable, List, Optional, Union
 
-from zdppy_api.fastapi.logger import logger
+from ..logger import logger
 from pydantic import AnyUrl, BaseModel, Field
 
 try:
