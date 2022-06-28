@@ -1,8 +1,8 @@
 from typing import Optional
 
-from zdppy_api.fastapi import FastAPI, Header
+from zdppy_api  import Api, Header
 
-app = FastAPI()
+app = Api()
 
 
 @app.get("/items/")

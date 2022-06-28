@@ -1,9 +1,9 @@
 from typing import Optional
 
-from zdppy_api.fastapi import Body, FastAPI
+from zdppy_api  import Body, Api
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = Api()
 
 
 class Item(BaseModel):

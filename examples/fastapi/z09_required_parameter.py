@@ -1,6 +1,6 @@
-from zdppy_api.fastapi import FastAPI
+from zdppy_api  import Api
 
-app = FastAPI()
+app = Api()
 
 
 @app.get("/items/{item_id}")

@@ -1,8 +1,8 @@
 from typing import Dict
 
-from zdppy_api.fastapi import FastAPI
+from zdppy_api  import Api
 
-app = FastAPI()
+app = Api()
 
 
 @app.post("/index-weights/")

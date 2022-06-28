@@ -1,9 +1,9 @@
 from typing import List
 
-from zdppy_api.fastapi import FastAPI
+from zdppy_api  import Api
 from pydantic import BaseModel, HttpUrl
 
-app = FastAPI()
+app = Api()
 
 
 class Image(BaseModel):

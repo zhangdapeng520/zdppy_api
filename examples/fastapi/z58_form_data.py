@@ -1,6 +1,6 @@
-from zdppy_api.fastapi import FastAPI, Form
+from zdppy_api  import Api, Form
 
-app = FastAPI()
+app = Api()
 
 
 @app.post("/login/")

@@ -1,8 +1,8 @@
 from typing import Optional
 
-from zdppy_api.fastapi import Depends, FastAPI
+from zdppy_api import Depends, Api
 
-app = FastAPI()
+app = Api()
 
 
 async def common_parameters(q: Optional[str] = None, skip: int = 0, limit: int = 100):

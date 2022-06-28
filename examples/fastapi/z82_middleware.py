@@ -1,12 +1,12 @@
 import time
 
-from zdppy_api.fastapi import Request
+from zdppy_api import Request
 from typing import Optional, Set
 
-from zdppy_api.fastapi import FastAPI
+from zdppy_api import Api
 from pydantic import BaseModel
 
-app = FastAPI()
+app = Api()
 
 
 class Item(BaseModel):

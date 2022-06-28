@@ -1,7 +1,7 @@
-from zdppy_api.fastapi import FastAPI
-from zdppy_api.fastapi.middleware.cors import CORSMiddleware
+from zdppy_api import Api
+from zdppy_api.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = Api()
 
 origins = [
     "http://localhost.tiangolo.com",

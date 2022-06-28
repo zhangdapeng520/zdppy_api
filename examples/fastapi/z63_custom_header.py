@@ -1,6 +1,6 @@
-from zdppy_api.fastapi import FastAPI, HTTPException
+from zdppy_api  import Api, HTTPException
 
-app = FastAPI()
+app = Api()
 
 items = {"foo": "The Foo Wrestlers"}
 

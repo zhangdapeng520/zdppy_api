@@ -1,9 +1,9 @@
-from zdppy_api.fastapi import FastAPI, HTTPException
-from zdppy_api.fastapi.exceptions import RequestValidationError
-from zdppy_api.fastapi.responses import PlainTextResponse
+from zdppy_api import Api, HTTPException
+from zdppy_api.exceptions import RequestValidationError
+from zdppy_api.responses import PlainTextResponse
 from zdppy_api.starlette.exceptions import HTTPException as StarletteHTTPException
 
-app = FastAPI()
+app = Api()
 
 
 @app.exception_handler(StarletteHTTPException)

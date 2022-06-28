@@ -1,6 +1,6 @@
-from zdppy_api.fastapi import FastAPI
+from zdppy_api  import Api
 
-app = FastAPI()
+app = Api()
 
 
 @app.get("/users/{id}", summary="获取用户信息")

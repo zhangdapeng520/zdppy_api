@@ -2,9 +2,9 @@ from datetime import datetime, time, timedelta
 from typing import Optional
 from uuid import UUID
 
-from zdppy_api.fastapi import Body, FastAPI
+from zdppy_api  import Body, Api
 
-app = FastAPI()
+app = Api()
 
 
 @app.put("/items/{item_id}")

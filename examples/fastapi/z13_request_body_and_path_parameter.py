@@ -1,6 +1,6 @@
 from typing import Optional
 
-from zdppy_api.fastapi import FastAPI
+from zdppy_api  import Api
 from pydantic import BaseModel
 
 
@@ -11,7 +11,7 @@ class Item(BaseModel):
     tax: Optional[float] = None
 
 
-app = FastAPI()
+app = Api()
 
 
 @app.put("/items/{item_id}")

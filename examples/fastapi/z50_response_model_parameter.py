@@ -1,9 +1,9 @@
 from typing import List, Optional
 
-from zdppy_api.fastapi import FastAPI
+from zdppy_api  import Api
 from pydantic import BaseModel
 
-app = FastAPI()
+app = Api()
 
 
 class Item(BaseModel):

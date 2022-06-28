@@ -1,6 +1,6 @@
-from zdppy_api.fastapi import FastAPI, File, UploadFile
+from zdppy_api  import Api, File, UploadFile
 
-app = FastAPI()
+app = Api()
 
 
 @app.post("/files/")

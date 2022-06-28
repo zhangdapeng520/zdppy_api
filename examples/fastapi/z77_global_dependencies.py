@@ -1,4 +1,4 @@
-from zdppy_api.fastapi import Depends, FastAPI, Header, HTTPException
+from zdppy_api  import Depends, Api, Header, HTTPException
 
 
 async def verify_token(x_token: str = Header(...)):
@@ -12,7 +12,7 @@ async def verify_key(x_key: str = Header(...)):
     return x_key
 
 
-app = FastAPI(dependencies=[Depends(verify_token), Depends(verify_key)])
+app = Api(dependencies=[Depends(verify_token), Depends(verify_key)])
 
 
 @app.get("/items/")

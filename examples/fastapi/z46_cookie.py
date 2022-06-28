@@ -1,8 +1,8 @@
 from typing import Optional
 
-from zdppy_api.fastapi import Cookie, FastAPI
+from zdppy_api  import Cookie, Api
 
-app = FastAPI()
+app = Api()
 
 
 @app.get("/items/")

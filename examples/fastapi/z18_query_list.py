@@ -1,8 +1,8 @@
 from typing import List
 
-from zdppy_api.fastapi import FastAPI, Query
+from zdppy_api  import Api, Query
 
-app = FastAPI()
+app = Api()
 
 
 @app.get("/items/")

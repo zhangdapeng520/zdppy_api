@@ -1,7 +1,7 @@
-from zdppy_api.fastapi import Depends, FastAPI
-from zdppy_api.fastapi.security import OAuth2PasswordBearer
+from zdppy_api  import Depends, Api
+from zdppy_api.security import OAuth2PasswordBearer
 
-app = FastAPI()
+app = Api()
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 

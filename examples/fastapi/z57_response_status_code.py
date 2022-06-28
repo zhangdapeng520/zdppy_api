@@ -1,6 +1,6 @@
-from zdppy_api.fastapi import FastAPI, status
+from zdppy_api import Api, status
 
-app = FastAPI()
+app = Api()
 
 
 @app.post("/items/", status_code=status.HTTP_201_CREATED)

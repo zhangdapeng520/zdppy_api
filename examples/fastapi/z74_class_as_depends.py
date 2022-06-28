@@ -1,8 +1,8 @@
 from typing import Optional
 
-from zdppy_api.fastapi import Depends, FastAPI
+from zdppy_api  import Depends, Api
 
-app = FastAPI()
+app = Api()
 
 fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
 

@@ -1,5 +1,5 @@
-from zdppy_api.fastapi import FastAPI, Request
-from zdppy_api.fastapi.responses import JSONResponse
+from zdppy_api  import Api, Request
+from zdppy_api.responses import JSONResponse
 
 
 class UnicornException(Exception):
@@ -7,7 +7,7 @@ class UnicornException(Exception):
         self.name = name
 
 
-app = FastAPI()
+app = Api()
 
 
 @app.exception_handler(UnicornException)
