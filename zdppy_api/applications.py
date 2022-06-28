@@ -53,7 +53,7 @@ class ResponseResult(BaseModel):
     status: bool = True  # 状态
     msg: str = "成功"  # 信息
     code: int = 10000  # 状态码：不采用常见HTTP状态码的原因，是为了避免容易被猜测
-    data: Dict = None
+    data: Any = None
 
 
 class Api(Starlette):
@@ -168,6 +168,8 @@ class Api(Starlette):
                     self.add_health_router()
                 if router == "upload":  # 初始化文件上传路由
                     self.add_upload_router()
+                if router == "uploads":  # 初始化多文件上传路由
+                    self.add_uploads_router()
 
     def add_middleware_cors(self, origins: List[str] = ["*"]) -> None:
         """
@@ -931,3 +933,24 @@ class Api(Starlette):
                 f.write(content)
             await file.close()
             return ResponseResult(data=data)
+
+    def add_uploads_router(self):
+        """
+        添加多文件上传的路由
+        """
+
+        @self.post("/uploads", summary="多文件上传")
+        async def upload(files: List[UploadFile]):
+            datas = []
+            for file in files:
+                content = await file.read()
+                data = {
+                    "filename": file.filename,
+                    "content-type": file.content_type,
+                    "size": len(content)
+                }
+                datas.append(data)
+                with open(f"{self.upload_directory}/{file.filename}", "wb") as f:
+                    f.write(content)
+                await file.close()
+            return ResponseResult(data=datas)

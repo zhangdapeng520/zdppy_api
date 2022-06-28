@@ -5,7 +5,7 @@ from typing import Any, Callable, Coroutine, Optional, Type, TypeVar
 from warnings import warn
 
 if typing.TYPE_CHECKING:
-    from anyio._core._tasks import CancelScope
+    from .._core._tasks import CancelScope
 
 T_Retval = TypeVar("T_Retval")
 
