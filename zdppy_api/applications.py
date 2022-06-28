@@ -44,16 +44,10 @@ from zdppy_api.starlette.responses import HTMLResponse, JSONResponse, Response
 from .starlette.routing import BaseRoute
 from zdppy_api.starlette.types import ASGIApp, Receive, Scope, Send
 from .middleware.cors import CORSMiddleware  # 跨域中间件
+from .response import ResponseResult
 
 
-class ResponseResult(BaseModel):
-    """
-    统一响应模型
-    """
-    status: bool = True  # 状态
-    msg: str = "成功"  # 信息
-    code: int = 10000  # 状态码：不采用常见HTTP状态码的原因，是为了避免容易被猜测
-    data: Any = None
+
 
 
 class Api(Starlette):

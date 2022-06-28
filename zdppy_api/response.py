@@ -1,6 +1,23 @@
-from typing import Dict, List
+from typing import Dict, List, Any
 
 from pydantic import BaseModel
+
+
+class ResponseResult(BaseModel):
+    """
+    统一响应模型
+    """
+    status: bool = True  # 状态
+    msg: str = "成功"  # 信息
+    code: int = 10000  # 状态码：不采用常见HTTP状态码的原因，是为了避免容易被猜测
+    data: Any = None
+
+
+def string(data: str) -> ResponseResult:
+    """
+    返回字符串响应
+    """
+    return ResponseResult(data=data)
 
 
 class ResponseSuccess(BaseModel):
