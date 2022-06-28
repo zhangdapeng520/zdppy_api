@@ -1,6 +1,5 @@
-**/.idea
-**/.vscode
-**/logs
-**/__pycache__
+.idea
+__pycache__
 main.py
 dist
+uploads

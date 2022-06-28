@@ -1,3 +1,4 @@
+import os.path
 from enum import Enum
 from typing import (
     Any,
@@ -15,7 +16,7 @@ from typing import (
 from pydantic import BaseModel
 
 from . import routing
-from .datastructures import Default, DefaultPlaceholder
+from .datastructures import Default, DefaultPlaceholder, UploadFile
 from .encoders import DictIntStrAny, SetIntStr
 from .exception_handlers import (
     http_exception_handler,
@@ -30,7 +31,7 @@ from .openapi.docs import (
     get_swagger_ui_oauth2_redirect_html,
 )
 from .openapi.utils import get_openapi
-from .params import Depends
+from .params import Depends, File
 from .types import DecoratedCallable
 from .utils import generate_unique_id
 from zdppy_api.starlette.applications import Starlette
@@ -87,6 +88,7 @@ class Api(Starlette):
                      generate_unique_id
                  ),
                  init_routers: List[str] = None,  # 初始化路由
+                 upload_directory: str = "uploads",  # 上传文件的目录
                  **extra: Any) -> None:
         super().__init__(debug, routes, middleware, exception_handlers, on_startup, on_shutdown)
         self._debug: bool = debug
@@ -147,6 +149,13 @@ class Api(Starlette):
         )
         self.middleware_stack: ASGIApp = self.build_middleware_stack()
         self.setup()
+
+        # 上传文件目录
+        self.upload_directory = upload_directory
+        if not os.path.exists(upload_directory):
+            os.makedirs(upload_directory)
+
+        # 初始化路由
         self.init_router(init_routers)
 
     def init_router(self, routers: List[str]):
@@ -157,6 +166,8 @@ class Api(Starlette):
             for router in routers:
                 if router == "health":  # 初始化健康健康检查路由
                     self.add_health_router()
+                if router == "upload":  # 初始化文件上传路由
+                    self.add_upload_router()
 
     def add_middleware_cors(self, origins: List[str] = ["*"]) -> None:
         """
@@ -568,7 +579,7 @@ class Api(Starlette):
             self,
             path: str,
             *,
-            response_model: Optional[Type[Any]] = None,
+            response_model: Optional[Type[Any]] = ResponseResult,
             status_code: Optional[int] = None,
             tags: Optional[List[Union[str, Enum]]] = None,
             dependencies: Optional[Sequence[Depends]] = None,
@@ -899,6 +910,24 @@ class Api(Starlette):
         添加健康检查的路由
         """
 
-        @self.get("/health")
+        @self.get("/health", summary="健康检查")
         async def health():
             return ResponseResult()
+
+    def add_upload_router(self):
+        """
+        添加文件上传的路由
+        """
+
+        @self.post("/upload", summary="单文件上传")
+        async def upload(file: UploadFile):
+            content = await file.read()
+            data = {
+                "filename": file.filename,
+                "content-type": file.content_type,
+                "size": len(content)
+            }
+            with open(f"{self.upload_directory}/{file.filename}", "wb") as f:
+                f.write(content)
+            await file.close()
+            return ResponseResult(data=data)

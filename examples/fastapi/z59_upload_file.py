@@ -1,18 +1,20 @@
-from zdppy_api  import Api, File, UploadFile
+from zdppy_api import Api, File, UploadFile, ResponseResult
 
-app = Api()
-
-
-@app.post("/files/")
-async def create_file(file: bytes = File(..., description="A file read as bytes")):
-    return {"file_size": len(file)}
+app = Api(init_routers=["health", "upload"])  # 初始化的时候自动加上
 
 
-@app.post("/uploadfile/")
-async def create_upload_file(
-        file: UploadFile = File(..., description="A file read as UploadFile")
-):
-    return {"filename": file.filename}
+@app.post("/upload1")
+async def upload(file: UploadFile):
+    content = await file.read()
+    data = {
+        "filename": file.filename,
+        "content-type": file.content_type,
+        "size": len(content)
+    }
+    with open(f"uploads/{file.filename}", "wb") as f:
+        f.write(content)
+    await file.close()
+    return ResponseResult(data=data)
 
 
 if __name__ == '__main__':

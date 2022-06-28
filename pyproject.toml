@@ -9,6 +9,7 @@ python = "^3.10"
 pydantic = "^1.9.1"
 uvicorn = "^0.17.6"
 anyio = "^3.6.1"
+python-multipart = "^0.0.5"
 
 [tool.poetry.dev-dependencies]
 
