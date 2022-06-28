@@ -12,6 +12,8 @@ from typing import (
     Union,
 )
 
+from pydantic import BaseModel
+
 from . import routing
 from .datastructures import Default, DefaultPlaceholder
 from .encoders import DictIntStrAny, SetIntStr
@@ -43,15 +45,24 @@ from zdppy_api.starlette.types import ASGIApp, Receive, Scope, Send
 from .middleware.cors import CORSMiddleware  # 跨域中间件
 
 
+class ResponseResult(BaseModel):
+    """
+    统一响应模型
+    """
+    status: bool = True  # 状态
+    msg: str = "成功"  # 信息
+    code: int = 10000  # 状态码：不采用常见HTTP状态码的原因，是为了避免容易被猜测
+    data: Dict = None
+
+
 class Api(Starlette):
     def __init__(self, *,
-                 debug: bool = False,  # 是否为Debug模式
-                 routes: Optional[List[BaseRoute]] = None,  # 路由列表
-                 title: str = "ZDP-Py-Api",  # 文档标题
+                 debug: bool = False,
+                 routes: Optional[List[BaseRoute]] = None,
+                 title: str = "ZDP-Py-Api",
                  description: str = "基于FastAPI二次开发，基于异步的Python RESTFUL API 快速开发框架",
                  version: str = "0.1.0",
-                 openapi_url: Optional[str] = "/openapi.json",
-                 openapi_tags: Optional[List[Dict[str, Any]]] = None,
+                 openapi_url: Optional[str] = "/openapi.json", openapi_tags: Optional[List[Dict[str, Any]]] = None,
                  servers: Optional[List[Dict[str, Union[str, Any]]]] = None,
                  dependencies: Optional[Sequence[Depends]] = None,
                  default_response_class: Type[Response] = Default(JSONResponse), docs_url: Optional[str] = "/docs",
@@ -63,7 +74,8 @@ class Api(Starlette):
                     Union[int, Type[Exception]],
                     Callable[[Request, Any], Coroutine[Any, Any, Response]],
                 ]
-            ] = None, on_startup: Optional[Sequence[Callable[[], Any]]] = None,
+            ] = None,
+                 on_startup: Optional[Sequence[Callable[[], Any]]] = None,
                  on_shutdown: Optional[Sequence[Callable[[], Any]]] = None, terms_of_service: Optional[str] = None,
                  contact: Optional[Dict[str, Union[str, Any]]] = None,
                  license_info: Optional[Dict[str, Union[str, Any]]] = None, openapi_prefix: str = "",
@@ -73,7 +85,10 @@ class Api(Starlette):
                  include_in_schema: bool = True, swagger_ui_parameters: Optional[Dict[str, Any]] = None,
                  generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
                      generate_unique_id
-                 ), **extra: Any) -> None:
+                 ),
+                 init_routers: List[str] = None,  # 初始化路由
+                 **extra: Any) -> None:
+        super().__init__(debug, routes, middleware, exception_handlers, on_startup, on_shutdown)
         self._debug: bool = debug
         self.title = title
         self.description = description
@@ -96,7 +111,6 @@ class Api(Starlette):
         if self.openapi_url:
             assert self.title, "A title must be provided for OpenAPI, e.g.: 'My API'"
             assert self.version, "A version must be provided for OpenAPI, e.g.: '2.1.0'"
-        # TODO: remove when discarding the openapi_prefix parameter
         if openapi_prefix:
             logger.warning(
                 '"openapi_prefix" has been deprecated in favor of "root_path", which '
@@ -133,6 +147,16 @@ class Api(Starlette):
         )
         self.middleware_stack: ASGIApp = self.build_middleware_stack()
         self.setup()
+        self.init_router(init_routers)
+
+    def init_router(self, routers: List[str]):
+        """
+        初始化路由
+        """
+        if routers is not None:
+            for router in routers:
+                if router == "health":  # 初始化健康健康检查路由
+                    self.add_health_router()
 
     def add_middleware_cors(self, origins: List[str] = ["*"]) -> None:
         """
@@ -434,7 +458,7 @@ class Api(Starlette):
             self,
             path: str,
             *,
-            response_model: Optional[Type[Any]] = None,
+            response_model: Optional[Type[Any]] = ResponseResult,  # 响应模型
             status_code: Optional[int] = None,
             tags: Optional[List[Union[str, Enum]]] = None,
             dependencies: Optional[Sequence[Depends]] = None,
@@ -869,3 +893,12 @@ class Api(Starlette):
             openapi_extra=openapi_extra,
             generate_unique_id_function=generate_unique_id_function,
         )
+
+    def add_health_router(self):
+        """
+        添加健康检查的路由
+        """
+
+        @self.get("/health")
+        async def health():
+            return ResponseResult()

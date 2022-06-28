@@ -1,7 +1,7 @@
-from zdppy_api.fastapi import FastAPI
+from zdppy_api import Api
 from zdppy_api import *
 
-app = FastAPI()
+app = Api()
 
 
 @app.get("/success", response_model=ResponseSuccess, summary="成功")
