@@ -146,8 +146,6 @@ class Api(Starlette):
 
         # 上传文件目录
         self.upload_directory = upload_directory
-        if not os.path.exists(upload_directory):
-            os.makedirs(upload_directory)
 
         # 初始化路由
         self.init_router(init_routers)
@@ -161,8 +159,12 @@ class Api(Starlette):
                 if router == "health":  # 初始化健康健康检查路由
                     self.add_health_router()
                 if router == "upload":  # 初始化文件上传路由
+                    if not os.path.exists(self.upload_directory):
+                        os.makedirs(self.upload_directory)
                     self.add_upload_router()
                 if router == "uploads":  # 初始化多文件上传路由
+                    if not os.path.exists(self.upload_directory):
+                        os.makedirs(self.upload_directory)
                     self.add_uploads_router()
 
     def add_middleware_cors(self, origins: List[str] = ["*"]) -> None:
